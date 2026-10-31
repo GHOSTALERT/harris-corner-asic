@@ -1,0 +1,32 @@
+=== tb_harris_top: IMG 13x11, LAT=10, 35 interior outputs/frame, seed=1 ===
+PASS  flat image (R=0, thr=0 -> no corner) outputs=35 corners=0
+PASS  horizontal edge                    outputs=35 corners=0
+PASS  vertical edge                      outputs=35 corners=0
+PASS  diagonal edge                      outputs=35 corners=0
+PASS  single bright pixel                outputs=35 corners=35
+PASS  bright square (4 corners)          outputs=35 corners=35
+PASS  checkerboard 1px                   outputs=35 corners=0
+PASS  checkerboard 2px                   outputs=35 corners=35
+PASS  ramp                               outputs=35 corners=23
+PASS  random                             outputs=35 corners=35
+PASS  random, 35% gaps                   outputs=35 corners=35
+PASS  random, 70% gaps                   outputs=35 corners=35
+PASS  square, 50% gaps                   outputs=35 corners=35
+PASS  thr = an actual R (strict >)       outputs=35 corners=21
+PASS  thr = max R (expect no corners)    outputs=35 corners=0
+PASS  thr = most negative (all corners)  outputs=35 corners=35
+PASS  k_q = 0 (R = det*2^10)             outputs=35 corners=35
+PASS  k_q = max (2047)                   outputs=35 corners=0
+PASS  0/255 noise (extreme sums)         outputs=35 corners=33
+PASS  3 different frames back-to-back    outputs=105 corners=70
+PASS  long idle (200 clk) mid-frame      outputs=35 corners=35
+PASS  reset mid-frame, then clean frame  outputs=35 corners=35
+PASS  random cfg 0 (pat=1 gap=15% k_q=1427 thr=2) outputs=70 corners=0
+PASS  random cfg 1 (pat=0 gap=52% k_q=1665 thr=1) outputs=70 corners=0
+PASS  random cfg 2 (pat=6 gap=40% k_q=747 thr=3) outputs=70 corners=70
+PASS  random cfg 3 (pat=4 gap=26% k_q=118 thr=2) outputs=70 corners=0
+PASS  random cfg 4 (pat=1 gap=39% k_q=517 thr=3) outputs=70 corners=70
+PASS  random cfg 5 (pat=5 gap=21% k_q=1402 thr=0) outputs=70 corners=0
+--------------------------------------------------------------------------
+TEST PASSED tb_harris_top 13x11: 28 tests, 1260 outputs checked, 672 corners
+tb/tb_harris.sv:387: $finish called at 77130000 (1ps)

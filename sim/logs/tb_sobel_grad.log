@@ -1,0 +1,2 @@
+TEST PASSED tb_sobel_grad (27471 vectors, Ix in [-1020,1020], Iy in [-1020,1020])
+tb/tb_sobel_grad.sv:64: $finish called at 305290000 (1ps)

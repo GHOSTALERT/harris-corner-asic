@@ -1,0 +1,3 @@
+tb/tb_boxsum5x5.sv:74: warning: Static variable initialization requires explicit lifetime in this context.
+TEST PASSED tb_boxsum5x5 (180 sums checked, extreme sums [-26010000,26010000])
+tb/tb_boxsum5x5.sv:83: $finish called at 9430000 (1ps)

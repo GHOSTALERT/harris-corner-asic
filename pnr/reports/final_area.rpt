@@ -1,0 +1,12 @@
+    Hinst Name             Module Name                             Inst Count           Total Area
+-----------------------------------------------------------------------------------------------
+harris_top_IMG_W64_IMG_H64                                              54154           564377.187
+ u_box                     boxsum5x5_IMG_W62_IMG_H62                    36099           435602.762
+  u_box/u_xx               boxsum_ch_IN_W20_SGN0_IMG_W62_CWID6          11651           139930.374
+  u_box/u_xy               boxsum_ch_IN_W21_SGN1_IMG_W62_CWID6          12781           154763.343
+  u_box/u_yy               boxsum_ch_IN_W20_SGN0_IMG_W62_CWID6_673      11540           139701.033
+ u_prod                    gradient_products                             1082             7024.789
+ u_resp                    harris_response_K_FRAC10_R_W64               14528            86555.300
+ u_sobel                   sobel_grad                                     262             2395.588
+ u_thr                     corner_threshold_R_W64                         310             2401.644
+ u_win                     window3x3_IMG_W64_IMG_H64                     1820            29579.652

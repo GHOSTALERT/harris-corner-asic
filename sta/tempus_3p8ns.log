@@ -1,0 +1,283 @@
+
+Cadence Tempus(TM) Timing Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.11-s001_1, built Fri Sep 16 15:45:21 PDT 2022
+Options:	-files ../scripts/sta.tcl 
+Date:		Thu Oct 29 00:50:19 2026
+Host:		cadence-server.vit.ac.in (x86_64 w/Linux 4.18.0-477.21.1.el8_8.x86_64) (16cores*32cpus*Intel(R) Xeon(R) Gold 6346 CPU @ 3.10GHz 36864KB)
+OS:		Red Hat Enterprise Linux release 8.8 (Ootpa)
+
+License:
+		[00:50:19.427898] Configured Lic search path (21.01-s002): 5280@14.139.1.126:1717@14.139.1.126
+
+		tpsxl	Tempus Timing Signoff Solution XL	22.1	checkout succeeded
+		16 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (2062 mbytes). Set global soft_stack_size_limit to change the value.
+environment variable TMPDIR is '/tmp/ssv_tmpdir_2797374_BJwdq6'.
+#@ Processing -files option
+Sourcing tcl/tk file '../scripts/sta.tcl' ...
+<CMD> read_lib ../synthesis/slow.lib
+<CMD> read_verilog ../synthesis/netlists/harris_top_netlist_slow.v
+<CMD> set_top_module harris_top_IMG_W64_IMG_H64
+#% Begin Load MMMC data ... (date=10/29 00:50:36, mem=1220.9M)
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+#% End Load MMMC data ... (date=10/29 00:50:36, total cpu=0:00:00.0, real=0:00:00.0, peak res=1221.0M, current mem=1221.0M)
+default_emulate_early_rc_corner default_emulate_late_rc_corner default_emulate_rc_corner
+Loading view definition file from .ssv_emulate_view_definition_2797374.tcl
+Reading default_emulate_libset_max timing library '/home/userdata/24bvd0039/harris_asic_stage_abc/harris/synthesis/slow.lib' ...
+Read 479 cells in library 'slow' 
+*** End library_loading (cpu=0.01min, real=0.00min, mem=41.0M, fe_cpu=0.24min, fe_real=0.28min, fe_mem=1278.4M) ***
+#% Begin Load netlist data ... (date=10/29 00:50:36, mem=1230.2M)
+*** Begin netlist parsing (mem=1278.4M) ***
+Reading verilog netlist '../synthesis/netlists/harris_top_netlist_slow.v'
+
+*** Memory Usage v#1 (Current mem = 1459.484M, initial mem = 618.441M) ***
+*** End netlist parsing (cpu=0:00:00.3, real=0:00:01.0, mem=1459.5M) ***
+#% End Load netlist data ... (date=10/29 00:50:37, total cpu=0:00:00.6, real=0:00:01.0, peak res=1372.2M, current mem=1362.2M)
+Set top cell to harris_top_IMG_W64_IMG_H64.
+Starting consistency checks on late and early library sets of delay corner 'default_emulate_delay_corner'
+late library set: default_emulate_libset_max
+early library set: default_emulate_libset_min
+Completed consistency checks. Status: Successful
+Starting consistency checks on late and early library sets of delay corner 'default_emulate_delay_corner'
+late library set: default_emulate_libset_max
+early library set: default_emulate_libset_min
+Completed consistency checks. Status: Successful
+Building hierarchical netlist for Cell harris_top_IMG_W64_IMG_H64 ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 489 modules.
+** info: there are 71778 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1839.930M, initial mem = 618.441M) ***
+Set Default Input Pin Transition as 0.1 ps.
+/dev/null
+Extraction setup Started 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: default_emulate_view
+    RC-Corner Name        : default_emulate_rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+Starting consistency checks on late and early library sets of delay corner 'default_emulate_delay_corner'
+late library set: default_emulate_libset_max
+early library set: default_emulate_libset_min
+Completed consistency checks. Status: Successful
+Reading timing constraints file '/dev/null' ...
+Current (total cpu=0:00:15.7, real=0:00:19.0, peak res=1990.6M, current mem=1990.6M)
+Total number of combinational cells: 316
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX12 BUFX16 BUFX2 BUFX20 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX2 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX12 CLKINVX16 CLKINVX2 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 INVX1 INVX12 INVX16 INVX2 INVX20 INVX3 INVX4 INVX6 INVXL INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X4 DLY4X1
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+default_emulate_constraint_mode
+Extraction setup Started 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: default_emulate_view
+    RC-Corner Name        : default_emulate_rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+Extraction setup Started 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: default_emulate_view
+    RC-Corner Name        : default_emulate_rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+Extraction setup Started 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: default_emulate_view
+    RC-Corner Name        : default_emulate_rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+default_emulate_libset_max default_emulate_libset_min
+<CMD> read_sdc ../synthesis/netlists/harris_top_slow.sdc
+Current (total cpu=0:00:16.0, real=0:00:19.0, peak res=2022.3M, current mem=1977.8M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../synthesis/netlists/harris_top_slow.sdc, Line 9).
+
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../synthesis/netlists/harris_top_slow.sdc, Line 10).
+
+harris_top_IMG_W64_IMG_H64
+INFO (CTE): Reading of timing constraints file ../synthesis/netlists/harris_top_slow.sdc completed, with 2 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1983.7M, current mem=1983.7M)
+Current (total cpu=0:00:16.1, real=0:00:19.0, peak res=2022.3M, current mem=1983.7M)
+<CMD> save_design -overwrite harris_top_demo
+Save of ccopt config is skipped.
+AAE_INFO: opIsDesignInPostRouteState() is 0
+AAE DB initialization (MEM=2256.08 CPU=0:00:00.0 REAL=0:00:00.0) 
+#################################################################################
+# Design Name: harris_top_IMG_W64_IMG_H64
+# Design Mode: 65nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=2305.18)
+/dev/null
+End delay calculation. (MEM=2554.29 CPU=0:00:07.9 REAL=0:00:08.0)
+End delay calculation (fullDC). (MEM=2554.29 CPU=0:00:08.5 REAL=0:00:09.0)
+#% Begin Swap out flat objects (date=10/29 00:50:50, mem=2102.0M)
+#% End Swap out flat objects (date=10/29 00:50:50, total cpu=0:00:00.0, real=0:00:00.0, peak res=2102.0M, current mem=2088.3M)
+#% Begin Save netlist data ... (date=10/29 00:50:50, mem=2088.3M)
+Writing Binary DB to harris_top_demo.dat.tmp/harris_top_IMG_W64_IMG_H64.v.bin in single-threaded mode...
+#% End Save netlist data ... (date=10/29 00:50:50, total cpu=0:00:00.2, real=0:00:00.0, peak res=2090.2M, current mem=2090.2M)
+Saving tempus db preserve file ...
+Parasitic Data of the design is not saved. Design has not been extracted yet.
+#% Begin Save AAE data ... (date=10/29 00:50:50, mem=2090.6M)
+Saving AAE Data ...
+AAE_INFO: Saving delay data on disk. 
+#% End Save AAE data ... (date=10/29 00:50:50, total cpu=0:00:00.4, real=0:00:01.0, peak res=2097.0M, current mem=2097.0M)
+Saving preference file harris_top_demo.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+#% Begin Save power constraints data ... (date=10/29 00:50:52, mem=2131.6M)
+#% End Save power constraints data ... (date=10/29 00:50:52, total cpu=0:00:00.0, real=0:00:00.0, peak res=2131.6M, current mem=2131.6M)
+default_emulate_early_rc_corner default_emulate_late_rc_corner default_emulate_rc_corner
+default_emulate_libset_max default_emulate_libset_min
+default_emulate_early_rc_corner default_emulate_late_rc_corner default_emulate_rc_corner
+default_emulate_constraint_mode
+/dev/null
+<CMD> check_design -type timing -out_file ./reports_slow/design.rpt
+Begin: Design checking
+        No issues found during checks.
+		(Real time: 0:00:00.0, Memory: 2530.6M)
+
+**ERROR: (IMPREPO-504):	Open file './reports_slow/design.rpt' failed, please check file permission.
+**INFO: Identified 0 error(s) and 0 warning(s) during 'check_design -type {timing}'.
+        The details of the error(s) and warning(s) can be found in report './reports_slow/design.rpt'
+End: Design checking
+<CMD> check_library
+<CMD> check_timing
+    -------------------------------------------------------------------------------  
+                                 TIMING CHECK SUMMARY                                
+    -------------------------------------------------------------------------------  
+     Warning                            Warning Description              Number of   
+                                                                         Warnings    
+    -------------------------------------------------------------------------------  
+    ideal_clock_waveform     Clock waveform is ideal                    1
+    no_drive                 No drive assertion                         86
+    -------------------------------------------------------------------------------
+<CMD> update_timing -full
+AAE_INFO: opIsDesignInPostRouteState() is 0
+#################################################################################
+# Design Name: harris_top_IMG_W64_IMG_H64
+# Design Mode: 65nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=2530.55)
+End delay calculation. (MEM=2601.94 CPU=0:00:07.8 REAL=0:00:08.0)
+End delay calculation (fullDC). (MEM=2601.94 CPU=0:00:08.4 REAL=0:00:09.0)
+<CMD> report_timing
+Path 1: MET Setup Check with Pin u_resp/p_sxy2_reg[46]/CK 
+Endpoint:   u_resp/p_sxy2_reg[46]/D     (^) checked with  leading edge of 'clk'
+Beginpoint: u_box/u_xy/sum_out_reg[1]/Q (v) triggered by  leading edge of 'clk'
+Path Groups: {clk}
+Other End Arrival Time          0.000
+- Setup                         0.144
++ Phase Shift                   3.800
+= Required Time                 3.656
+- Arrival Time                  3.607
+= Slack Time                    0.049
+     Clock Rise Edge                 0.000
+     + Clock Network Latency (Ideal) 0.000
+     = Beginpoint Arrival Time       0.000
+      ------------------------------------------------------------------------------------------
+      Instance                                 Arc           Cell       Delay  Arrival  Required  
+                                                                               Time     Time  
+      ------------------------------------------------------------------------------------------
+      u_box/u_xy/sum_out_reg[1]                CK ^          -          -      0.000    0.049  
+      u_box/u_xy/sum_out_reg[1]                CK ^ -> Q v   SDFFQX4    0.369  0.369    0.418  
+      u_resp/g51129                            A v -> Y ^    NOR2X1     0.093  0.462    0.511  
+      u_resp/g51127                            B ^ -> Y ^    CLKAND2X4  0.159  0.621    0.669  
+      u_resp/g6979                             B ^ -> Y ^    CLKAND2X2  0.142  0.762    0.811  
+      u_resp/g46522                            A ^ -> Y v    CLKINVX2   0.039  0.802    0.851  
+      u_resp/g48332                            B v -> Y ^    NAND2X2    0.063  0.865    0.913  
+      u_resp/g66187                            A ^ -> Y v    NAND2X4    0.082  0.947    0.995  
+      u_resp/g66557                            A v -> Y ^    INVX2      0.095  1.042    1.091  
+      u_resp/csa_tree_SUB_TC_OP_groupi_g35806  A ^ -> Y v    CLKINVX2   0.043  1.084    1.133  
+      u_resp/g65968                            B v -> Y ^    NOR2BX1    0.074  1.159    1.208  
+      u_resp/g77949                            A1N ^ -> Y ^  AOI2BB1X1  0.155  1.314    1.363  
+      u_resp/g65849                            B ^ -> Y v    NOR2X2     0.065  1.379    1.428  
+      u_resp/g470                              A v -> Y v    BUFX3      0.129  1.508    1.557  
+      u_resp/g65641                            A0 v -> Y ^   AOI21X2    0.102  1.610    1.658  
+      u_resp/g122                              B ^ -> Y v    NAND2X1    0.120  1.730    1.779  
+      u_resp/g66609                            B v -> Y ^    NAND2X1    0.068  1.798    1.847  
+      u_resp/g49691                            A ^ -> Y v    CLKINVX1   0.053  1.851    1.900  
+      u_resp/g65618                            A1 v -> Y ^   OAI21X2    0.084  1.935    1.984  
+      u_resp/fopt65439                         A ^ -> Y v    INVX1      0.061  1.996    2.045  
+      u_resp/g66795                            A v -> Y ^    NAND2X2    0.053  2.049    2.098  
+      u_resp/g66794                            B0 ^ -> Y v   OAI21X2    0.080  2.129    2.178  
+      u_resp/g66796                            B v -> Y ^    NAND2X1    0.076  2.205    2.254  
+      u_resp/g44924                            A ^ -> Y v    NAND2X2    0.092  2.296    2.345  
+      u_resp/g49786                            B v -> Y ^    NAND2X2    0.065  2.361    2.410  
+      u_resp/g49785                            B ^ -> Y v    NAND2X2    0.071  2.432    2.481  
+      u_resp/g51421                            B v -> Y ^    XOR3X1     0.289  2.722    2.770  
+      u_resp/g63958                            B ^ -> Y v    NAND2X2    0.083  2.805    2.854  
+      u_resp/g66756                            B v -> Y ^    NAND2X2    0.077  2.882    2.931  
+      u_resp/g66754                            A2 ^ -> Y v   AOI31X4    0.108  2.990    3.039  
+      u_resp/g70355                            A1 v -> Y ^   OAI21X2    0.087  3.077    3.126  
+      u_resp/g64522                            B ^ -> Y v    NAND2X1    0.091  3.168    3.216  
+      u_resp/g65369                            B v -> Y ^    NAND2X2    0.074  3.242    3.290  
+      u_resp/fopt48846                         A ^ -> Y v    CLKINVX2   0.056  3.298    3.347  
+      u_resp/fopt48845                         A v -> Y ^    CLKINVX2   0.048  3.346    3.395  
+      u_resp/g66275                            A1 ^ -> Y v   AOI21X2    0.078  3.424    3.473  
+      u_resp/g66277                            B v -> Y ^    NAND2X1    0.058  3.482    3.531  
+      u_resp/g73634                            B0 ^ -> Y v   OAI21X1    0.062  3.545    3.594  
+      u_resp/g73631                            C v -> Y ^    NAND3XL    0.063  3.607    3.656  
+      u_resp/p_sxy2_reg[46]                    D ^           DFFRHQX8   0.000  3.607    3.656  
+      ------------------------------------------------------------------------------------------
+
+<CMD> report_timing -late > ../sta/reports_slow/setup_tempus.rpt
+**ERROR: (TCLCMD-113):	Could not open file '/home/userdata/24bvd0039/harris_asic_stage_abc/harris/sta/../sta/reports_slow/setup_tempus.rpt' to write
+(file "../scripts/sta.tcl" line 16)
+<CMD> exit
+
+*** Memory Usage v#1 (Current mem = 2510.941M, initial mem = 618.441M) ***
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+ERROR     IMPREPO-504          1  Open file '%s' failed, please check file...
+ERROR     TCLCMD-113           1  Could not open file '%s' to write        
+WARNING   TCLCMD-1461          2  Skipped unsupported command: %s          
+*** Message Summary: 2 warning(s), 2 error(s)
+
+--- Ending "Tempus Timing Solution" (totcpu=0:00:43.1, real=0:01:17, mem=2510.9M) ---

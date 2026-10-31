@@ -1,0 +1,2 @@
+TEST PASSED tb_corner_threshold (14990 vectors, 7054 corners)
+tb/tb_corner_threshold.sv:44: $finish called at 200230000 (1ps)

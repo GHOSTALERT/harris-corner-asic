@@ -1,0 +1,2 @@
+TEST PASSED tb_window3x3 (122 windows checked)
+tb/tb_window3x3.sv:63: $finish called at 3680000 (1ps)

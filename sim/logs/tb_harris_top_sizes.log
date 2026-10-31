@@ -1,0 +1,128 @@
+=== tb_harris_top: IMG 64x64, LAT=10, 3364 interior outputs/frame, seed=3 ===
+PASS  flat image (R=0, thr=0 -> no corner) outputs=3364 corners=0
+PASS  horizontal edge                    outputs=3364 corners=0
+PASS  vertical edge                      outputs=3364 corners=0
+PASS  diagonal edge                      outputs=3364 corners=0
+PASS  single bright pixel                outputs=3364 corners=45
+PASS  bright square (4 corners)          outputs=3364 corners=108
+PASS  checkerboard 1px                   outputs=3364 corners=0
+PASS  checkerboard 2px                   outputs=3364 corners=3364
+PASS  ramp                               outputs=3364 corners=1688
+PASS  random                             outputs=3364 corners=3364
+PASS  random, 35% gaps                   outputs=3364 corners=3364
+PASS  random, 70% gaps                   outputs=3364 corners=3364
+PASS  square, 50% gaps                   outputs=3364 corners=108
+PASS  thr = an actual R (strict >)       outputs=3364 corners=2887
+PASS  thr = max R (expect no corners)    outputs=3364 corners=0
+PASS  thr = most negative (all corners)  outputs=3364 corners=3364
+PASS  k_q = 0 (R = det*2^10)             outputs=3364 corners=3364
+PASS  k_q = max (2047)                   outputs=3364 corners=0
+PASS  0/255 noise (extreme sums)         outputs=3364 corners=3231
+PASS  3 different frames back-to-back    outputs=10092 corners=3472
+PASS  long idle (200 clk) mid-frame      outputs=3364 corners=3364
+PASS  reset mid-frame, then clean frame  outputs=3364 corners=108
+PASS  random cfg 0 (pat=1 gap=11% k_q=193 thr=2) outputs=6728 corners=0
+PASS  random cfg 1 (pat=5 gap=14% k_q=1958 thr=0) outputs=6728 corners=0
+PASS  random cfg 2 (pat=10 gap=20% k_q=1844 thr=0) outputs=6728 corners=0
+PASS  random cfg 3 (pat=9 gap=8% k_q=816 thr=3) outputs=6728 corners=6728
+PASS  random cfg 4 (pat=6 gap=57% k_q=747 thr=0) outputs=6728 corners=0
+PASS  random cfg 5 (pat=6 gap=13% k_q=555 thr=1) outputs=6728 corners=0
+--------------------------------------------------------------------------
+TEST PASSED tb_harris_top 64x64: 28 tests, 121104 outputs checked, 41923 corners
+tb/tb_harris.sv:387: $finish called at 1944970000 (1ps)
+=== tb_harris_top: IMG 256x20, LAT=10, 3500 interior outputs/frame, seed=3 ===
+PASS  flat image (R=0, thr=0 -> no corner) outputs=3500 corners=0
+PASS  horizontal edge                    outputs=3500 corners=0
+PASS  vertical edge                      outputs=3500 corners=0
+PASS  diagonal edge                      outputs=3500 corners=0
+PASS  single bright pixel                outputs=3500 corners=45
+PASS  bright square (4 corners)          outputs=3500 corners=108
+PASS  checkerboard 1px                   outputs=3500 corners=0
+PASS  checkerboard 2px                   outputs=3500 corners=3500
+PASS  ramp                               outputs=3500 corners=1750
+PASS  random                             outputs=3500 corners=3500
+PASS  random, 35% gaps                   outputs=3500 corners=3500
+PASS  random, 70% gaps                   outputs=3500 corners=3500
+PASS  square, 50% gaps                   outputs=3500 corners=108
+PASS  thr = an actual R (strict >)       outputs=3500 corners=312
+PASS  thr = max R (expect no corners)    outputs=3500 corners=0
+PASS  thr = most negative (all corners)  outputs=3500 corners=3500
+PASS  k_q = 0 (R = det*2^10)             outputs=3500 corners=3500
+PASS  k_q = max (2047)                   outputs=3500 corners=0
+PASS  0/255 noise (extreme sums)         outputs=3500 corners=43
+PASS  3 different frames back-to-back    outputs=10500 corners=3608
+PASS  long idle (200 clk) mid-frame      outputs=3500 corners=3500
+PASS  reset mid-frame, then clean frame  outputs=3500 corners=108
+PASS  random cfg 0 (pat=3 gap=21% k_q=183 thr=1) outputs=7000 corners=0
+PASS  random cfg 1 (pat=2 gap=20% k_q=325 thr=1) outputs=7000 corners=0
+PASS  random cfg 2 (pat=1 gap=43% k_q=1732 thr=3) outputs=7000 corners=7000
+PASS  random cfg 3 (pat=10 gap=28% k_q=1757 thr=1) outputs=7000 corners=4822
+PASS  random cfg 4 (pat=2 gap=2% k_q=1281 thr=1) outputs=7000 corners=0
+PASS  random cfg 5 (pat=6 gap=53% k_q=1970 thr=3) outputs=7000 corners=7000
+--------------------------------------------------------------------------
+TEST PASSED tb_harris_top 256x20: 28 tests, 126000 outputs checked, 49404 corners
+tb/tb_harris.sv:387: $finish called at 2497820000 (1ps)
+=== tb_harris_top: IMG 640x10, LAT=10, 2536 interior outputs/frame, seed=3 ===
+PASS  flat image (R=0, thr=0 -> no corner) outputs=2536 corners=0
+PASS  horizontal edge                    outputs=2536 corners=0
+PASS  vertical edge                      outputs=2536 corners=0
+PASS  diagonal edge                      outputs=2536 corners=0
+PASS  single bright pixel                outputs=2536 corners=28
+PASS  bright square (4 corners)          outputs=2536 corners=44
+PASS  checkerboard 1px                   outputs=2536 corners=0
+PASS  checkerboard 2px                   outputs=2536 corners=2536
+PASS  ramp                               outputs=2536 corners=1266
+PASS  random                             outputs=2536 corners=2536
+PASS  random, 35% gaps                   outputs=2536 corners=2536
+PASS  random, 70% gaps                   outputs=2536 corners=2536
+PASS  square, 50% gaps                   outputs=2536 corners=44
+PASS  thr = an actual R (strict >)       outputs=2536 corners=591
+PASS  thr = max R (expect no corners)    outputs=2536 corners=0
+PASS  thr = most negative (all corners)  outputs=2536 corners=2536
+PASS  k_q = 0 (R = det*2^10)             outputs=2536 corners=2536
+PASS  k_q = max (2047)                   outputs=2536 corners=0
+PASS  0/255 noise (extreme sums)         outputs=2536 corners=1279
+PASS  3 different frames back-to-back    outputs=7608 corners=2580
+PASS  long idle (200 clk) mid-frame      outputs=2536 corners=2536
+PASS  reset mid-frame, then clean frame  outputs=2536 corners=44
+PASS  random cfg 0 (pat=5 gap=18% k_q=645 thr=2) outputs=5072 corners=0
+PASS  random cfg 1 (pat=5 gap=22% k_q=1974 thr=2) outputs=5072 corners=0
+PASS  random cfg 2 (pat=7 gap=29% k_q=1157 thr=1) outputs=5072 corners=0
+PASS  random cfg 3 (pat=7 gap=46% k_q=1800 thr=1) outputs=5072 corners=0
+PASS  random cfg 4 (pat=3 gap=21% k_q=1325 thr=2) outputs=5072 corners=0
+PASS  random cfg 5 (pat=3 gap=8% k_q=195 thr=1) outputs=5072 corners=5030
+--------------------------------------------------------------------------
+TEST PASSED tb_harris_top 640x10: 28 tests, 91296 outputs checked, 28658 corners
+tb/tb_harris.sv:387: $finish called at 3029830000 (1ps)
+=== tb_harris_top: IMG 7x7, LAT=10, 1 interior outputs/frame, seed=3 ===
+PASS  flat image (R=0, thr=0 -> no corner) outputs=1 corners=0
+PASS  horizontal edge                    outputs=1 corners=0
+PASS  vertical edge                      outputs=1 corners=0
+PASS  diagonal edge                      outputs=1 corners=0
+PASS  single bright pixel                outputs=1 corners=1
+PASS  bright square (4 corners)          outputs=1 corners=1
+PASS  checkerboard 1px                   outputs=1 corners=0
+PASS  checkerboard 2px                   outputs=1 corners=1
+PASS  ramp                               outputs=1 corners=0
+PASS  random                             outputs=1 corners=1
+PASS  random, 35% gaps                   outputs=1 corners=1
+PASS  random, 70% gaps                   outputs=1 corners=1
+PASS  square, 50% gaps                   outputs=1 corners=1
+PASS  thr = an actual R (strict >)       outputs=1 corners=0
+PASS  thr = max R (expect no corners)    outputs=1 corners=0
+PASS  thr = most negative (all corners)  outputs=1 corners=1
+PASS  k_q = 0 (R = det*2^10)             outputs=1 corners=1
+PASS  k_q = max (2047)                   outputs=1 corners=0
+PASS  0/255 noise (extreme sums)         outputs=1 corners=0
+PASS  3 different frames back-to-back    outputs=3 corners=2
+PASS  long idle (200 clk) mid-frame      outputs=1 corners=1
+PASS  reset mid-frame, then clean frame  outputs=1 corners=1
+PASS  random cfg 0 (pat=1 gap=30% k_q=1109 thr=3) outputs=2 corners=2
+PASS  random cfg 1 (pat=10 gap=23% k_q=598 thr=2) outputs=2 corners=0
+PASS  random cfg 2 (pat=4 gap=47% k_q=2041 thr=2) outputs=2 corners=0
+PASS  random cfg 3 (pat=7 gap=19% k_q=1904 thr=1) outputs=2 corners=0
+PASS  random cfg 4 (pat=8 gap=6% k_q=326 thr=1) outputs=2 corners=0
+PASS  random cfg 5 (pat=0 gap=58% k_q=321 thr=3) outputs=2 corners=2
+--------------------------------------------------------------------------
+TEST PASSED tb_harris_top 7x7: 28 tests, 36 outputs checked, 17 corners
+tb/tb_harris.sv:387: $finish called at 30170000 (1ps)

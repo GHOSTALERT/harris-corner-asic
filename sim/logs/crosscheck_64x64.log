@@ -1,0 +1,9 @@
+model: 3364 interior outputs, 360 corners (k_q=41, thr=187666750780875)
+RTL run, 0% input stalls:
+  DUMP DONE 64x64: 3364 outputs
+  3364 outputs, 360 corners, mismatches vs model: 0
+RTL run, 35% input stalls:
+  DUMP DONE 64x64: 3364 outputs
+  3364 outputs, 360 corners, mismatches vs model: 0
+saved sim/corners_64x64.png
+CROSSCHECK PASS

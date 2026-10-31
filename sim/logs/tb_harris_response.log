@@ -1,0 +1,2 @@
+TEST PASSED tb_harris_response (12599 vectors; R_s range [-5539346578800000000, 692756582400000000])
+tb/tb_harris_response.sv:63: $finish called at 151340000 (1ps)

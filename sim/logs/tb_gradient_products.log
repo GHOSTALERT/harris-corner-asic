@@ -1,0 +1,2 @@
+TEST PASSED tb_gradient_products (124284 vectors; Pxx max 1040400, Pxy [-1040400,1040400])
+tb/tb_gradient_products.sv:39: $finish called at 1367440000 (1ps)
