@@ -7,6 +7,7 @@
 ![Node](https://img.shields.io/badge/node-90%20nm%20gsclib090-555)
 ![Timing](https://img.shields.io/badge/250%20MHz-timing%20met-2e7d32)
 ![Course](https://img.shields.io/badge/VIT-BEVD301L%20ASIC%20Design-1e3a8a)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 <p align="center">
   <img src="docs/images/layout_routed_crop.png" alt="Routed layout of harris_top in Cadence Innovus" width="520"><br>
@@ -163,3 +164,7 @@ An earlier version of the RTL (v1: 16 × 16 image, compile-time k and threshold,
 | Krithik Sai | 24BVD0039 |
 | Arrnav Trisal | 24BVD0064 |
 | Ashmit Singh | 24BVD0027 |
+
+## License
+
+Released under the [MIT License](LICENSE).
