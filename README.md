@@ -1,10 +1,13 @@
 # Harris Corner Detection ASIC: RTL to GDSII
 
+<p align="center">
+  <img src="docs/images/layout_routed_crop.png" alt="Routed layout of harris_top in Cadence Innovus" width="520"><br>
+  <em>Routed harris_top (64 × 64 configuration): 1017 × 1012 µm die, 54,154 cells, 250 MHz, DRC clean. Cadence Innovus, 90 nm gsclib090.</em>
+</p>
+
 A streaming Harris corner detector written in synthesizable SystemVerilog and taken through a complete Cadence flow in a 90 nm generic standard-cell library (gsclib090): Xcelium simulation, Genus synthesis, Conformal LEC, Tempus STA and Innovus place-and-route, ending in a DRC-clean GDSII.
 
 Group project for **BEVD301L ASIC Design / BEVD301P ASIC Design Lab**, VIT Vellore, Fall Semester 2026–27.
-
-![Routed layout](docs/images/routed.png)
 
 ## Results at a glance
 
@@ -138,6 +141,8 @@ The reported run used `CLK_PERIOD=2.25`. The default in `genus.tcl` was later ch
 | ![](docs/images/floorplan.png) | ![](docs/images/powerplan.png) |
 | **Placement** | **Module placement regions** |
 | ![](docs/images/placement.png) | ![](docs/images/amoeba_view.png) |
+| **Routed** | **Post-route timing** |
+| ![](docs/images/routed.png) | ![](docs/images/postroute_timing.png) |
 
 After layout the worst setup path moved from the Sxy² multiplier to the high-fanout column counter in `boxsum5x5`. That path meets timing with the help of 1.06 ns of clock skew. The worst hold path (input pin to the `window3x3` line buffer) was fixed with inserted delay cells.
 
