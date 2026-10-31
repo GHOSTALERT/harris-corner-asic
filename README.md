@@ -1,11 +1,21 @@
 # Harris Corner Detection ASIC: RTL to GDSII
 
+**A corner detector in silicon: 250 million pixels per second, taken from SystemVerilog all the way to a DRC-clean 1 mm² layout.**
+
+![SystemVerilog](https://img.shields.io/badge/RTL-SystemVerilog-0b7285)
+![Cadence](https://img.shields.io/badge/flow-Genus%20%C2%B7%20Conformal%20%C2%B7%20Tempus%20%C2%B7%20Innovus-b91c1c)
+![Node](https://img.shields.io/badge/node-90%20nm%20gsclib090-555)
+![Timing](https://img.shields.io/badge/250%20MHz-timing%20met-2e7d32)
+![Course](https://img.shields.io/badge/VIT-BEVD301L%20ASIC%20Design-1e3a8a)
+
 <p align="center">
   <img src="docs/images/layout_routed_crop.png" alt="Routed layout of harris_top in Cadence Innovus" width="520"><br>
   <em>Routed harris_top (64 × 64 configuration): 1017 × 1012 µm die, 54,154 cells, 250 MHz, DRC clean. Cadence Innovus, 90 nm gsclib090.</em>
 </p>
 
 A streaming Harris corner detector written in synthesizable SystemVerilog and taken through a complete Cadence flow in a 90 nm generic standard-cell library (gsclib090): Xcelium simulation, Genus synthesis, Conformal LEC, Tempus STA and Innovus place-and-route, ending in a DRC-clean GDSII.
+
+Corner detection is the first step of feature tracking, visual odometry and image stitching. In a camera pipeline it has to keep up with the pixel clock, which is why it is a classic candidate for dedicated hardware. This design processes one pixel per clock with only line buffers (no frame memory), and its response is exact. Every bit width is derived from worst-case bounds, so nothing overflows or gets truncated.
 
 Group project for **BEVD301L ASIC Design / BEVD301P ASIC Design Lab**, VIT Vellore, Fall Semester 2026–27.
 
@@ -24,17 +34,6 @@ Group project for **BEVD301L ASIC Design / BEVD301P ASIC Design Lab**, VIT Vello
 | Physical checks | DRC 0, connectivity 0, process antenna 0 |
 | Verification | 28-test self-checking testbench (Xcelium and Icarus), 6 unit testbenches, bit-exact match with a Python reference model |
 
-## Team
-
-| Name | Registration No. |
-|---|---|
-| Saket Sodani | 24BVD0069 |
-| Advay Gopalakrishnan | 24BVD0191 |
-| Swajit Jain | 24BVD0022 |
-| Krithik Sai | 24BVD0039 |
-| Arrnav Trisal | 24BVD0064 |
-| Ashmit Singh | 24BVD0027 |
-
 ## Architecture
 
 ![Block diagram](docs/images/block_diagram.png)
@@ -52,51 +51,11 @@ A linear pipeline of six modules. Only line buffers are stored, never a full fra
 
 Every width comes from worst-case bounds for 8-bit input (see `docs/arithmetic_analysis.md` and `model/bounds.py`), so no stage can overflow, and the response is never truncated. `k = k_q / 1024` and `thr` are run-time inputs, so one netlist can be tuned without re-synthesis. Latency is a fixed 10 clocks. `corner_valid` is only asserted where the full 7 × 7 footprint lies inside the image.
 
-## Repository layout
+## Verification
 
-```
-rtl/              7 SystemVerilog modules (harris_top.sv is the top)
-tb/               tb_harris.sv (28-test integration TB, module tb_harris_top) + 6 unit TBs
-model/            harris_reference.py (bit-exact Python model), bounds.py (worst-case width analysis)
-sim/              crosscheck.py + tb_harris_dump.sv (RTL vs Python at 64x64), logs/, corners_64x64.png
-synthesis/        genus.tcl, Genus reports (area, gates, timing, QoR, power), log, netlist + SDC
-lec/              Conformal LEC script and log
-sta/              Tempus script and logs (2.25 ns and 3.8 ns runs)
-pnr/              innovus.tcl, mmmc.tcl, final reports, CTS reports, timing summaries, post-route netlist
-docs/             architecture, interface spec, arithmetic analysis, verification plan/results, images/
-report/           the submitted case study and the front-end / back-end lab reports (PDF)
-run_sim.sh        runs every simulation that does not need Cadence tools
-```
+Every block has its own self-checking unit testbench. A 28-test integration testbench then runs the full design at five image sizes (7 × 7 up to 640 × 10). All of them pass under both Cadence Xcelium and Icarus Verilog. The 28 tests cover edges, corner patterns, checkerboards, random input stalls (35 % and 70 %), a 200-cycle idle gap, extreme `k_q` and `thr`, 0/255 noise, back-to-back frames, reset mid-frame and random configurations. The 13 × 11 run matches the team's Xcelium result exactly: 28 tests, 1,260 outputs, 672 corners.
 
-## Running the simulations
-
-Needs Icarus Verilog 11 or newer; `sim/crosscheck.py` also needs numpy (and matplotlib for the plot).
-
-```bash
-./run_sim.sh        # or: make sim
-```
-
-Output on this machine (Icarus Verilog 12.0):
-
-```
-TEST PASSED tb_window3x3 (122 windows checked)
-TEST PASSED tb_sobel_grad (27471 vectors, Ix in [-1020,1020], Iy in [-1020,1020])
-TEST PASSED tb_gradient_products (124284 vectors; Pxx max 1040400, Pxy [-1040400,1040400])
-TEST PASSED tb_boxsum5x5 (180 sums checked, extreme sums [-26010000,26010000])
-TEST PASSED tb_harris_response (12599 vectors; R_s range [-5539346578800000000, 692756582400000000])
-TEST PASSED tb_corner_threshold (14990 vectors, 7054 corners)
-TEST PASSED tb_harris_top 13x11: 28 tests, 1260 outputs checked, 672 corners
-TEST PASSED tb_harris_top 64x64: 28 tests, 121104 outputs checked, 41923 corners
-TEST PASSED tb_harris_top 256x20: 28 tests, 126000 outputs checked, 49404 corners
-TEST PASSED tb_harris_top 640x10: 28 tests, 91296 outputs checked, 28658 corners
-TEST PASSED tb_harris_top 7x7: 28 tests, 36 outputs checked, 17 corners
-CROSSCHECK PASS
-ALL SIMULATIONS PASS
-```
-
-The 13 × 11 run gives exactly the same result the team got in Cadence Xcelium (28 tests, 1,260 outputs, 672 corners). The 28 tests cover edges, corner patterns, checkerboards, random input stalls (35 %, 70 %), a 200-cycle idle gap, extreme `k_q` and `thr`, 0/255 noise, back-to-back frames, reset mid-frame and random configurations.
-
-`sim/crosscheck.py` streams a 64 × 64 scene through the RTL and compares every `resp_dbg` and `corner_out` with `model/harris_reference.py`: 3,364 outputs and 0 mismatches, with and without 35 % input stalls. There is no non-maximum suppression in this version, so each corner shows up as a small cluster:
+`sim/crosscheck.py` streams a 64 × 64 scene through the RTL and compares every response and corner flag with the bit-exact Python model (`model/harris_reference.py`): **3,364 outputs, 0 mismatches**, with and without 35 % input stalls. There is no non-maximum suppression in this version, so each corner shows up as a small cluster:
 
 ![RTL corner output on a 64x64 scene](sim/corners_64x64.png)
 
@@ -166,6 +125,26 @@ These are stated in the back-end report:
 - `sta/tempus.tcl`: removed a stray `~` left at the end of the file by vim.
 - The original `run_*.sh` scripts and Python vector generator were written for an earlier vector-file testbench that no longer exists. They are replaced by `run_sim.sh`, which runs the current testbenches.
 
+## Repository layout
+
+```
+rtl/              7 SystemVerilog modules (harris_top.sv is the top)
+tb/               tb_harris.sv (28-test integration TB, module tb_harris_top) + 6 unit TBs
+model/            harris_reference.py (bit-exact Python model), bounds.py (worst-case width analysis)
+sim/              crosscheck.py + tb_harris_dump.sv (RTL vs Python at 64x64), logs/, corners_64x64.png
+synthesis/        genus.tcl, Genus reports (area, gates, timing, QoR, power), log, netlist + SDC
+lec/              Conformal LEC script and log
+sta/              Tempus script and logs (2.25 ns and 3.8 ns runs)
+pnr/              innovus.tcl, mmmc.tcl, final reports, CTS reports, timing summaries, post-route netlist
+docs/             architecture, interface spec, arithmetic analysis, verification plan/results, HOW_TO_RUN.md, images/
+report/           the submitted case study and the front-end / back-end lab reports (PDF)
+run_sim.sh        runs every simulation that does not need Cadence tools
+```
+
+## Running it
+
+Simulations (Icarus Verilog, no Cadence needed) and the Cadence scripts: see **[docs/HOW_TO_RUN.md](docs/HOW_TO_RUN.md)**.
+
 ## Reports
 
 - `report/Harris_Case_Study.pdf`: literature survey (11 papers + MathWorks reference), problem statement and proposed architecture
@@ -173,3 +152,14 @@ These are stated in the back-end report:
 - `report/Assignment_X_Back_End_Report.pdf`: floorplan to GDSII
 
 An earlier version of the RTL (v1: 16 × 16 image, compile-time k and threshold, coordinate outputs) is in [ashmitsingh7/ASIC_Proj](https://github.com/ashmitsingh7/ASIC_Proj).
+
+## Team
+
+| Name | Registration No. |
+|---|---|
+| Saket Sodani | 24BVD0069 |
+| Advay Gopalakrishnan | 24BVD0191 |
+| Swajit Jain | 24BVD0022 |
+| Krithik Sai | 24BVD0039 |
+| Arrnav Trisal | 24BVD0064 |
+| Ashmit Singh | 24BVD0027 |
